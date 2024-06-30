@@ -1,4 +1,4 @@
-package ArrayProgram;
+package Arrayy;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -6,25 +6,23 @@ import java.util.Scanner;
 public class InsertElement {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int[] a = { 10, 20, 30, 40, 50, 70, 80, 90, 100 };
-		System.out.println("Enter the element you want to insert in array");
-		int element = scanner.nextInt();
-		System.out.println("Enter the position at you want to insert element");
-		int position = scanner.nextInt();
+		Scanner sca = new Scanner(System.in);
+		int a[] = { 70, 60, 50, 40, 30, 20, 10 };
+		System.out.println("Enter element to insert and position");
+		int insert = sca.nextInt();
+		int position = sca.nextInt();
+		int i, j;
+		int ar[] = new int[a.length + 1];
+		for (i = 0, j = 0; i < ar.length; i++, j++) {
 
-		int[] updated = new int[a.length + 1];
-		for (int i = 0,j=0; i < updated.length; i++) {
-			if (position == i) {
-				updated[i] = element;
-			
-			}else 
-			{
-				updated[i]=a[j];
-				j++;
+			if (i == position) {
+				ar[i] = insert;
+			} else if (i < position) {
+				ar[i] = a[i];
+			} else if (i > position) {
+				ar[i] = a[i - 1];
 			}
 		}
-		scanner.close();
-		System.out.println(Arrays.toString(updated));
+		System.out.println(Arrays.toString(ar));
 	}
 }
